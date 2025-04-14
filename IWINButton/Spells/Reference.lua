@@ -1,0 +1,32 @@
+
+IWB_SPELL_REF  = {
+	["Attack"] = {["handler"] = IWBAttack},
+	["Heroic Strike"] = {["handler"] = IWBRageNextMelee, ["no_rank"] = true},
+	["Battle Shout"] = {["handler"] = IWBBuff, ["no_rank"] = true},
+	["Cleave"] = {["handler"] = IWBRageNextMelee, ["no_rank"] = true},
+	["Rend"] = {["handler"] = IWBDebuff, ["no_rank"] = true},
+	["Sunder Armor"] = {["handler"] = IWBDebuffStack, ["no_rank"] = true},
+	["Battle Stance"] = {["handler"] = IWBStance},
+	["Defensive Stance"] = {["handler"] = IWBStance},
+	["Berseker Stance"] = {["handler"] = IWBStance},
+	["Charge"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Hamstring"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Mocking Blow"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Overpower"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Thunder Clap"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Demoralizing Shout"] = {["handler"] = IWBDebuff, ["no_rank"] = true},
+	["Execute"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Intercept"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Intervene"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Revenge"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Shield Bash"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Shield Block"] = {["handler"] = IWBBuff, ["no_rank"] = true},
+	["Mortal Strike"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Bloodthirst"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Shield Slam"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Concussion Blow"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Slam"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+	["Counterattack"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
+}
+
+
