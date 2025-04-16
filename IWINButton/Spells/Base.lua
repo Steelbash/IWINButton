@@ -101,7 +101,6 @@ function IWBSpellBase:IsReady(spell)
 		end
 	end
 	
-	--if isReady and (GetSpellCooldown(SM_FindSpell(spell["name"])) ~= 0) then
 	if isReady and (GetSpellCooldown(spell["id"], "spell") ~= 0) then
 		isReady = false
 	end
@@ -111,14 +110,5 @@ end
 
 function IWBSpellBase:Cast(spell)
 	CastSpell(spell["id"], "spell")
---[[
-	if spell_rank == nil then
-		print("[debug] cast "..spell["name"])
-		cast(spell["name"])
-	else
-		print("[debug] cast "..spell["name"].." "..spell_rank)
-		cast(spell["name"].."("..spell_rank..")")
-	end
-]]--
 end
 

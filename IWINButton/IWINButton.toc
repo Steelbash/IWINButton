@@ -1,6 +1,6 @@
 ## Interface: 11200
 ## Title: I.W.I.N. Button
-## Version: 1.0.0
+## Version: 1.1.0
 ## Author: Murashko
 ## SavedVariablesPerCharacter: IWB_Data
 
@@ -16,6 +16,7 @@ Spells\Attack.lua
 Spells\Buff.lua
 Spells\Debuff.lua
 Spells\DebuffStack.lua
+Spells\DebuffOrNot.lua
 Spells\Rage.lua
 Spells\RageNextMelee.lua
 Spells\Stance.lua

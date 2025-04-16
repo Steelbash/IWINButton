@@ -102,9 +102,13 @@ function IWBMainFrame:CreateFrame(parent)
 	borderBR:SetHeight(256)
 	borderBR:SetPoint("BOTTOMRIGHT", 0, 0)
 	
-	local titleText = frame:CreateFontString("ChillButtonTitleText", "BORDER", "GameFontNormal")
-	titleText:SetText("I.W.I.N. Button")
+	local titleText = frame:CreateFontString(nil, "BORDER", "GameFontNormal")
+	titleText:SetText("I.W.I.N. Button ")
 	titleText:SetPoint("TOP", frame, "TOP", 0, -17)
+	
+	local versionText = frame:CreateFontString(nil, "BORDER", "GameFontHighlightSmall")
+	versionText:SetText("v"..GetAddOnMetadata("IWINButton", "Version"))
+	versionText:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -65, -18)
 
 	-- Close Button
 	local closeButton = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
@@ -150,7 +154,6 @@ function IWBMainFrame:CreateFrame(parent)
 	buttonList:CreateFrame("IWBButtonList", frame)
 	buttonList:SetWidth(100)
 	buttonList:SetOnChange(function() IWBMainFrame:ButtonListOnChange() end)
-	--buttonList:SetText("no selected")
 	buttonList.frame:SetPoint("TOPRIGHT", newButton, "TOPLEFT", 12, 2)
 	frame.buttonList = buttonList
 	
