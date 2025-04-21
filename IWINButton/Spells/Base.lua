@@ -36,13 +36,48 @@ function IWBSpellBase:CreateFrame()
 	rankList:CreateFrame("IWBRankList"..self.name, rankCond)
 	rankList:SetWidth(40)
 	rankList:SetOnChange(function() self:SetRank(rankList:GetSelected())  end)
-
-	rankList.frame:SetPoint("TOPLEFT", rankTitle, "TOPRIGHT", 5, 7)
+	rankList.frame:SetPoint("LEFT", rankTitle, "LEFT", 70, 0)
 	rankCond.rankList = rankList
+	
+	local maxButton = CreateFrame("Button", nil, rankCond, "UIPanelButtonTemplate")
+	maxButton:SetWidth(35)
+	maxButton:SetHeight(22)
+	maxButton:SetText("max")
+	maxButton:SetPoint("LEFT", rankList.frame, "RIGHT", -10, 3)
+	maxButton:SetScript("OnClick", function() self:MaxOnClick() end)
+	rankCond.maxButton = maxButton
+
+	
+	local autoCond = CreateFrame("Frame", nil, frame)
+	autoCond:SetWidth(90)
+	autoCond:SetHeight(22)
+
+	local titleTxt = autoCond:CreateFontString(nil, "ARTWORK", "GameFontNormal")
+	titleTxt:SetPoint("TOPLEFT", 0, -10)
+	titleTxt:SetText("Auto target")
+
+	local checkbox = CreateFrame("CheckButton", nil, autoCond, "UICheckButtonTemplate")
+	checkbox:SetWidth(22)
+	checkbox:SetHeight(22)
+	checkbox:SetPoint("LEFT", titleTxt, "LEFT", 85, 0)
+	checkbox:SetScript("OnClick", function() self:SetAutoTarget(checkbox:GetChecked()) end)
+	autoCond.checkbox = checkbox
+	
+	
+	frame.autoCond = autoCond
 	frame.rankCond = rankCond
 	
 	self.frame = frame
 	self.created = true
+end
+
+function IWBSpellBase:SetAutoTarget(v)
+	if v ~= self.spell["auto_target"] then
+		self.spell["auto_target"] = v
+		if self.onChange ~= nil then
+			self.onChange()
+		end
+	end
 end
 
 function IWBSpellBase:Show()
@@ -54,13 +89,27 @@ function IWBSpellBase:Hide()
 end
 
 function IWBSpellBase:SetRank(v)
+	local maxRank = IWBUtils:GetSpellMaxRank(self.spell["name"])
+	if tonumber(v) < maxRank then
+		self.frame.rankCond.maxButton:Enable()
+	else
+		self.frame.rankCond.maxButton:Disable()
+	end
+
 	local rank = "Rank "..v
 	if rank ~= self.spell["rank"] then
 		self.spell["rank"] = rank
+		self.spell["id"] = IWBUtils:GetSpellId(self.spell["name"], self.spell["rank"])
+		
 		if self.onChange ~= nil then
 			self.onChange()
 		end
 	end
+end
+
+function IWBSpellBase:MaxOnClick()
+	local maxRank = IWBUtils:GetSpellMaxRank(self.spell["name"])
+	self.frame.rankCond.rankList:SetSelected(tostring(maxRank))
 end
 
 function IWBSpellBase:ShowConfig(spell, onChange)
@@ -80,12 +129,23 @@ function IWBSpellBase:ShowConfig(spell, onChange)
 		lastFrame = self.frame.rankCond
 		
 		local list = {}
-		for i = 1,IWBUtils:GetSpellMaxRank(spell["name"]) do
+		local rankNum = IWBUtils:GetRankNum(spell["rank"])
+		local maxRank = IWBUtils:GetSpellMaxRank(spell["name"])
+		for i = 1,maxRank do
 			table.insert(list, tostring(i))
 		end
-		self.frame.rankCond.rankList:SetList(list, IWBUtils:GetRankNum(spell["rank"]))
+		self.frame.rankCond.rankList:SetList(list, rankNum)
 	else
 		self.frame.rankCond:Hide()
+	end
+	
+	if IWB_SPELL_REF[spell["name"]] ~= nil and IWB_SPELL_REF[spell["name"]]["auto_target"] then
+		self.frame.autoCond:Show()
+		self.frame.autoCond:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, 0)
+		self.frame.autoCond.checkbox:SetChecked(spell["auto_target"])
+		lastFrame = self.frame.autoCond
+	else
+		self.frame.autoCond:Hide()
 	end
 	
 	return lastFrame
@@ -102,6 +162,11 @@ function IWBSpellBase:IsReady(spell)
 	end
 	
 	if isReady and (GetSpellCooldown(spell["id"], "spell") ~= 0) then
+		isReady = false
+	end
+	
+	if (IWB_SPELL_REF[spell["name"]] ~= nil) and IWB_SPELL_REF[spell["name"]]["auto_target"] and
+		(spell["auto_target"] ~= 1) and (UnitCanAttack("player", "target") == nil) then
 		isReady = false
 	end
 	

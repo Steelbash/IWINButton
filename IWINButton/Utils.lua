@@ -189,6 +189,22 @@ function IWBUtils:GetSpellMinRank(spell_name)
 	end
 end
 
+function IWBUtils:GetSpellId(spell_name, spell_rank)
+	local n = 1
+
+    while true do
+        local name, rank = GetSpellName(n, "spell")
+        if not name then
+            break
+        end
+        if name == spell_name and rank == spell_rank then
+			return n
+        end
+        n = n + 1
+    end
+	return nil
+end
+
 
 function IWBUtils:FindBuff(buff, unit)
     for i=1, 64 do

@@ -18,7 +18,7 @@ function IWBDebuffOrNot:CreateFrame()
 	listEl:SetWidth(80)
 	listEl.frame:SetPoint("TOPLEFT", titleTxt, "TOPRIGHT", 5, 7)
 	listEl:SetOnChange(function() self:SetBehavior(listEl:GetSelected())  end)
-	listEl:SetList({"Spell", "Debuff"})
+	listEl:SetList({"Spell", "Debuff"}, self.spell["behavior"])
 
 	behaviorCond.listEl = listEl
 	self.frame.behaviorCond = behaviorCond

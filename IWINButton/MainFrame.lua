@@ -451,10 +451,9 @@ function IWBMainFrame:DeleteSpellOnClick()
 			local spellCount = IWBDb:GetSpellCount(buttonName)
 
 			if spellIndex > spellCount then
-				IWBMainFrame.frame.rotationTab.scrollFrame:SetSelected(spellCount)
-			else
-				IWBMainFrame.frame.rotationTab.scrollFrame:UpdateFrame()
+				spellIndex = spellCount
 			end
+			IWBMainFrame.frame.rotationTab.scrollFrame:SetSelected(spellIndex)
 		end
 	end
 end
@@ -482,11 +481,6 @@ function IWBMainFrame:ChangeOrderDownOnClick()
 end
 
 function IWBMainFrame:FindSpellsOnActionBar()
---[[
-	if true then
-		return
-	end
-]]--
 	if GetTime() < self.updateSpellsLast + self.updateSpellsPeriod then
 		return
 	end
