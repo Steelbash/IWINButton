@@ -8,7 +8,7 @@ IWB_SPELL_REF  = {
 	["Battle Shout"] = {["handler"] = IWBBuff, ["no_rank"] = true},
 	["Cleave"] = {["handler"] = IWBRageNextMelee, ["no_rank"] = true, ["auto_target"] = true},
 	["Rend"] = {["handler"] = IWBDebuff, ["no_rank"] = true, ["auto_target"] = true},
-	["Sunder Armor"] = {["handler"] = IWBDebuffStack, ["no_rank"] = true, ["auto_target"] = true},
+	["Sunder Armor"] = {["handler"] = IWBSpellBase, ["no_rank"] = true, ["auto_target"] = true},
 	["Battle Stance"] = {["handler"] = IWBStance},
 	["Defensive Stance"] = {["handler"] = IWBStance},
 	["Berseker Stance"] = {["handler"] = IWBStance},
@@ -71,8 +71,118 @@ IWB_SPELL_REF  = {
 	["Prayer of Spirit"] = {["handler"] = IWBBuff},
 	["Shadow Protection"] = {["handler"] = IWBBuff},
 	["Prayer of Shadow Protection"] = {["handler"] = IWBBuff},
-	--["Mind Flay"] = {["handler"] = IWBBuff},
+	["Mind Flay"] = {["handler"] = IWBChanneled},
+	
+	-- Warlock
 
+	
+	["Corruption"] = {["handler"] = IWBDebuff},
+	["Curse of Agony"] = {["handler"] = IWBDebuff},
+	["Curse of Recklessness"] = {["handler"] = IWBDebuff},
+	["Curse of Shadow"] = {["handler"] = IWBDebuff},
+	["Curse of Tongues"] = {["handler"] = IWBDebuff},
+	["Curse of the Elements"] = {["handler"] = IWBDebuff},
+	["Curse of the Elements"] = {["handler"] = IWBDebuff},
+	["Immolate"] = {["handler"] = IWBDebuff},
+	["Siphon Life"] = {["handler"] = IWBDebuff},
+	["Curse of Exhaustion"] = {["handler"] = IWBDebuff},
+	
+	["Drain Life"] = {["handler"] = IWBChanneled},
+	["Drain Mana"] = {["handler"] = IWBChanneled},
+	["Drain Soul"] = {["handler"] = IWBChanneled},
+	["Health Funnel"] = {["handler"] = IWBChanneled},
+	["Mana Funnel"] = {["handler"] = IWBChanneled},
+	["Dark Harvest"] = {["handler"] = IWBChanneled},
+	
+	["Demon Armor"] = {["handler"] = IWBBuff},
+	["Detect Greater Invisibility"] = {["handler"] = IWBBuff},
+	["Detect Invisibility"] = {["handler"] = IWBBuff},
+	["Detect Lesser Invisibility"] = {["handler"] = IWBBuff},
+	["Unending Breath"] = {["handler"] = IWBBuff},
+
+	-- Mage
+	
+	["Arcane Brilliance"] = {["handler"] = IWBBuff},
+	["Arcane Intellect"] = {["handler"] = IWBBuff, ["alias"] = "Arcane Brilliance"},
+	["Arcane Missiles"] = {["handler"] = IWBChanneled},
+	["Detect Magic"] = {["handler"] = IWBDebuff},
+	["Evocation"] = {["handler"] = IWBChanneled},
+	["Mage Armor"] = {["handler"] = IWBBuff},
+	["Mana Shield"] = {["handler"] = IWBBuff},
+	["Slow Fall"] = {["handler"] = IWBBuff},
+	["Frost Armor"] = {["handler"] = IWBBuff},
+	["Ice Armor"] = {["handler"] = IWBBuff},
+	["Ice Barrier"] = {["handler"] = IWBBuff},
+	["Icicles"] = {["handler"] = IWBChanneled},
+
+	-- Druid
+
+    ["Entangling Roots"] = {["handler"] = IWBDebuff},
+    ["Faerie Fire"] = {["handler"] = IWBDebuff},
+    ["Insect Swarm"] = {["handler"] = IWBDebuff},
+    ["Demoralizing Roar"] = {["handler"] = IWBDebuff},
+    ["Faerie Fire (Feral)"] = {["handler"] = IWBDebuff},
+  
+    ["Thorns"] = {["handler"] = IWBBuff},
+    ["Aquatic Form"] = {["handler"] = IWBBuff},
+    ["Cat Form"] = {["handler"] = IWBBuff},
+    ["Dire Bear Form"] = {["handler"] = IWBBuff},
+    ["Bear Form"] = {["handler"] = IWBBuff},
+    ["Prowl"] = {["handler"] = IWBBuff},
+    ["Travel Form"] = {["handler"] = IWBBuff},
+    ["Abolish Poison"] = {["handler"] = IWBBuff},
+    ["Gift of the Wild"] = {["handler"] = IWBBuff},
+    ["Mark of the Wild"] = {["handler"] = IWBBuff, ["alias"] = "Gift of the Wild"},
+    ["Moonkin Form"] = {["handler"] = IWBBuff},
+    ["Tree of Life Form"] = {["handler"] = IWBBuff},
+    
+    ["Ferocious Bite"] = {["handler"] = IWBCombopoint, ["no_rank"] = true, ["auto_target"] = true},
+    ["Rip"] = {["handler"] = IWBCombopointAndDebuff, ["no_rank"] = true, ["auto_target"] = true},
+    ["Savage Bite"] = {["handler"] = IWBRage, ["no_rank"] = true, ["auto_target"] = true},
+    ["Swipe"] = {["handler"] = IWBRage, ["no_rank"] = true, ["auto_target"] = true},
+    ["Maul"] = {["handler"] = IWBRageNextMelee, ["no_rank"] = true, ["auto_target"] = true},
+    
+    ["Bash"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+    ["Claw"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+    ["Rake"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+    ["Ravage"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+    ["Shred"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+    ["Shred"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+	
+	
+	
+	-- Shaman
+
+	["Flame Shock"] = {["handler"] = IWBDebuff, ["auto_target"] = true},
+	["Earth Shield"] = {["handler"] = IWBBuff},
+	["Fire Resistance Totem"] = {["handler"] = IWBBuff, ["alias"] = "Fire Resistance"},
+	["Flametongue Totem"] = {["handler"] = IWBBuff, ["alias"] = "Flametongue Totem Passive"},
+	["Frost Resistance Totem"] = {["handler"] = IWBBuff, ["alias"] = "Frost Resistance"},
+	["Grace of Air Totem"] = {["handler"] = IWBBuff, ["alias"] = "Grace of Air"},
+	["Grounding Totem"] = {["handler"] = IWBBuff, ["alias"] = "Grounding Totem Effect"},
+	["Lightning Shield"] = {["handler"] = IWBBuff},
+	["Nature Resistance Totem"] = {["handler"] = IWBBuff, ["alias"] = "Nature Resistance"},
+	["Stoneskin Totem"] = {["handler"] = IWBBuff, ["alias"] = "Stoneskin"},
+	["Strength of Earth Totem"] = {["handler"] = IWBBuff, ["alias"] = "Strength of Earth"},
+	["Healing Stream Totem"] = {["handler"] = IWBBuff, ["alias"] = "Healing Stream"},
+	["Mana Spring Totem"] = {["handler"] = IWBBuff, ["alias"] = "Mana Spring Totem"},
+	["Windwall Totem"] = {["handler"] = IWBBuff, ["alias"] = "Windwall"},
+	["Tranquil Air Totem"] = {["handler"] = IWBBuff, ["alias"] = "Tranquil Air"},
+	["Water Breathing"] = {["handler"] = IWBBuff},
+	["Water Shield"] = {["handler"] = IWBBuff},
+	["Water Walking"] = {["handler"] = IWBBuff},
+	
+	["Rockbiter Weapon"] = {["handler"] = IWBBuff, ["alias"] = "Rockbiter"},
+	["Frostbrand Weapon"] = {["handler"] = IWBBuff, ["alias"] = "Frostbrand"},
+	["Flametongue Weapon"] = {["handler"] = IWBBuff, ["alias"] = "Flametongue"},
+	["Windfury Weapon"] = {["handler"] = IWBBuff, ["alias"] = "Windfury"},
+	
+	["Earth Shock"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+	["Frost Shock"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+	["Stormstrike"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+	["Lightning Strike"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+	
+
+	
 }
-
 

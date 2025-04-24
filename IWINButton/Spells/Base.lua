@@ -175,5 +175,6 @@ end
 
 function IWBSpellBase:Cast(spell)
 	CastSpell(spell["id"], "spell")
+	return true
 end
 

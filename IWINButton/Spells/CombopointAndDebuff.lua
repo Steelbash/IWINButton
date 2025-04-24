@@ -34,7 +34,7 @@ end
 function IWBCombopointAndDebuff:ShowConfig(spell, onChange)
 	local lastFrame = IWBCombopoint.ShowConfig(self, spell, onChange)
 	
-	self.frame.buffCond:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -10)
+	self.frame.buffCond:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, 0)
 	self.frame.buffCond.checkbox:SetChecked(spell["combopoint_and_debuff"])
 end
 

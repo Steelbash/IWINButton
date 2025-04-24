@@ -18,6 +18,11 @@ function IWBTooltip:SetUnitBuff(unit, i)
 	self.frame:SetUnitBuff(unit, i)
 end
 
+function IWBTooltip:SetInventoryItem(unit, i)
+	self.frame:ClearLines()
+	self.frame:SetInventoryItem(unit, i)
+end
+
 function IWBTooltip:SetUnitDebuff(unit, i)
 	self.frame:ClearLines()
 	self.frame:SetUnitDebuff(unit, i)

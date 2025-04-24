@@ -20,17 +20,19 @@ function frame:CreateSpellBookButton()
 
 end
 
+
+
 frame:SetScript('OnEvent', function()
-    if event == "CHAT_MSG_SPELL_SELF_DAMAGE" then
+	if event == "CHAT_MSG_SPELL_SELF_DAMAGE" then
 		frame:CHAT_MSG_SPELL_SELF_DAMAGE(arg1)
-	else
+	else 
 		this[event]()
     end
 end)
 
 function frame:CHAT_MSG_SPELL_SELF_DAMAGE(combat_msg)
 	if string.find(combat_msg, "Your Auto Shot") then
-		print("AutoShot!: "..(combat_msg or nil))
+		CB_AutoShot_Last = GetTime()
 	end
 end
 

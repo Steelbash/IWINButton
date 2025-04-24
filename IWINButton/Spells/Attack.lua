@@ -19,3 +19,7 @@ function IWBAttack:IsReady(spell)
 	return isReady
 end
 
+function IWBAttack:Cast(spell)
+	IWBSpellBase.Cast(self, spell)
+	return false
+end
