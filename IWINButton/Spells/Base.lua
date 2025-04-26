@@ -19,13 +19,13 @@ function IWBSpellBase:CreateFrame()
 	
 	local frameTop = frame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	frameTop:SetHeight(0)
-	frameTop:SetPoint("TOPLEFT", 10, 0)
+	frameTop:SetPoint("TOPLEFT", 10, -15)
 	frame.frameTop = frameTop
 	
 	local rankCond = CreateFrame("Frame", nil, frame)
 	rankCond:SetWidth(90)
 	rankCond:SetHeight(22)
-	rankCond:SetPoint("TOPLEFT", frameTop, "BOTTOMLEFT", 0, -10)
+	rankCond:SetPoint("TOPLEFT", frameTop, "BOTTOMLEFT", 0, 0)
 
 	local rankTitle = rankCond:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	rankTitle:SetPoint("TOPLEFT", 0, 0)
@@ -53,7 +53,7 @@ function IWBSpellBase:CreateFrame()
 	autoCond:SetHeight(22)
 
 	local titleTxt = autoCond:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-	titleTxt:SetPoint("TOPLEFT", 0, -10)
+	titleTxt:SetPoint("TOPLEFT", 0, 0)
 	titleTxt:SetText("Auto target")
 
 	local checkbox = CreateFrame("CheckButton", nil, autoCond, "UICheckButtonTemplate")

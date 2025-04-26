@@ -9,16 +9,12 @@ function IWBCombopoint:CreateFrame()
 	combCond:SetHeight(22)
 
 	local titleTxt = combCond:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-	titleTxt:SetPoint("TOPLEFT", 0, -10)
+	titleTxt:SetPoint("TOPLEFT", 0, 0)
 	titleTxt:SetText("Combo points")
-	--[[
-	local titleTxt2 = combCond:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-	titleTxt2:SetPoint("TOPLEFT", titleTxt, "BOTTOMLEFT", 0, 0)
-	titleTxt2:SetText("points")
-	]]--
+
 	local compLayer = combCond:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	compLayer:SetText(">=")
-	compLayer:SetPoint("LEFT", 90, -5)
+	compLayer:SetPoint("LEFT", 90, 5)
 	
 	local valueEl = DropDownTemplate:new()
 	valueEl:CreateFrame("IWBCombopoint"..self.name, combCond)

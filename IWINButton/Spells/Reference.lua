@@ -1,6 +1,7 @@
 
 IWB_SPELL_REF  = {
 	["Attack"] = {["handler"] = IWBAttack, ["auto_target"] = true},
+	["Auto Shot"] = {["handler"] = IWBAutoshot},
 	
 	-- Warrior
 	
@@ -66,7 +67,7 @@ IWB_SPELL_REF  = {
 	["Fear Ward"] = {["handler"] = IWBBuff},
 	["Inner Fire"] = {["handler"] = IWBBuff},
 	["Power Word: Fortitude"] = {["handler"] = IWBBuff, ["alias"] = "Prayer of Fortitude"},
-	["Power Word: Shield"] = {["handler"] = IWBShieldBuff},
+	["Power Word: Shield"] = {["handler"] = IWBBuffWithDebuff, ["debuff"] = "Weakened Soul"},
 	["Prayer of Fortitude"] = {["handler"] = IWBBuff},
 	["Prayer of Spirit"] = {["handler"] = IWBBuff},
 	["Shadow Protection"] = {["handler"] = IWBBuff},
@@ -171,6 +172,7 @@ IWB_SPELL_REF  = {
 	["Water Breathing"] = {["handler"] = IWBBuff},
 	["Water Shield"] = {["handler"] = IWBBuff},
 	["Water Walking"] = {["handler"] = IWBBuff},
+	["Windfury Totem"] = {["handler"] = IWBBuff, ["alias"] = "Windfury Totem Effect"},
 	
 	["Rockbiter Weapon"] = {["handler"] = IWBBuff, ["alias"] = "Rockbiter"},
 	["Frostbrand Weapon"] = {["handler"] = IWBBuff, ["alias"] = "Frostbrand"},
@@ -183,6 +185,56 @@ IWB_SPELL_REF  = {
 	["Lightning Strike"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
 	
 
+	-- Hunter
 	
+	["Aspect of the Beast"] = {["handler"] = IWBBuff},
+	["Aspect of the Cheetah"] = {["handler"] = IWBBuff},
+	["Aspect of the Hawk"] = {["handler"] = IWBBuff},
+	["Aspect of the Monkey"] = {["handler"] = IWBBuff},
+	["Aspect of the Pack"] = {["handler"] = IWBBuff},
+	["Hunter's Mark"] = {["handler"] = IWBDebuff},
+	["Scorpid Sting"] = {["handler"] = IWBDebuff},
+	["Serpent Sting"] = {["handler"] = IWBDebuff},
+	["Viper Sting"] = {["handler"] = IWBDebuff},
+	["Track Beasts"] = {["handler"] = IWBBuff},
+	["Track Demons"] = {["handler"] = IWBBuff},
+	["Track Elementals"] = {["handler"] = IWBBuff},
+	["Track Giants"] = {["handler"] = IWBBuff},
+	["Track Hidden"] = {["handler"] = IWBBuff},
+	["Track Humanoids"] = {["handler"] = IWBBuff},
+	["Track Undead"] = {["handler"] = IWBBuff},
+	["Steady Shot"] = {["handler"] = IWBSteadyShot},
+
+	-- Paladin
+	
+	["Seal of Light"] = {["handler"] = IWBSeal, ["debuff"] = "Judgement of Light"},
+	["Seal of Wisdom"] = {["handler"] = IWBSeal, ["debuff"] = "Judgement of Wisdom"},
+	["Seal of the Crusader"] = {["handler"] = IWBSeal, ["debuff"] = "Judgement of the Crusader"},
+	["Seal of Justice"] = {["handler"] = IWBSeal, ["debuff"] = "Judgement of Justice"},
+	["Seal of Righteousness"] = {["handler"] = IWBSeal},
+	["Seal of Command"] = {["handler"] = IWBSeal},
+	
+	["Blessing of Wisdom"] = {["handler"] = IWBBuff, ["alias"] = "Greater Blessing of Wisdom"},
+	["Greater Blessing of Wisdom"] = {["handler"] = IWBBuff},
+	["Blessing of Light"] = {["handler"] = IWBBuff},
+	["Sense Undead"] = {["handler"] = IWBBuff},
+	["Blessing of Salvation"] = {["handler"] = IWBBuff},
+	["Concentration Aura"] = {["handler"] = IWBBuff},
+	["Devotion Aura"] = {["handler"] = IWBBuff},
+										   
+	["Divine Protection"] = {["handler"] = IWBBuffWithDebuff, ["debuff"] = "Forbearance"},
+	["Divine Shield"] = {["handler"] = IWBBuffWithDebuff, ["debuff"] = "Forbearance"},
+	["Hand of Protection"] = {["handler"] = IWBBuffWithDebuff, ["debuff"] = "Forbearance"},
+	
+	["Blessing of Kings"] = {["handler"] = IWBBuff, ["alias"] = "Greater Blessing of Kings"},
+	["Greater Blessing of Kings"] = {["handler"] = IWBBuff},
+	["Blessing of Might"] = {["handler"] = IWBBuff, ["alias"] = "Greater Blessing of Might"},
+	["Greater Blessing of Might"] = {["handler"] = IWBBuff},
+	["Retribution Aura"] = {["handler"] = IWBBuff},
+	["Blessing of Sanctuary"] = {["handler"] = IWBBuff},
+	
+	["Holy Strike"] = {["handler"] = IWBNextMelee, ["auto_target"] = true},
+	["Crusader Strike"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+	["Judgement"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
 }
 

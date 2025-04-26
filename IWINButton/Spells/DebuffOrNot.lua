@@ -9,8 +9,8 @@ function IWBDebuffOrNot:CreateFrame()
 	behaviorCond:SetHeight(22)
 
 	local titleTxt = behaviorCond:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-	titleTxt:SetPoint("TOPLEFT", 0, -10)
-	titleTxt:SetText("Behavior")
+	titleTxt:SetPoint("TOPLEFT", 0, 0)
+	titleTxt:SetText("Type")
 	behaviorCond.titleTxt = titleTxt
 	
 	local listEl = DropDownTemplate:new()

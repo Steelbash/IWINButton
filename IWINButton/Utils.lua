@@ -207,24 +207,28 @@ end
 
 
 function IWBUtils:FindBuff(buff, unit)
-	local hasBuff = GetWeaponEnchantInfo();
+	local hasBuff = GetWeaponEnchantInfo()
 	if hasBuff then
-		IWBTooltip:SetInventoryItem(unit, 16);
+		IWBTooltip:SetInventoryItem(unit, 16)
 		for i=1, 23 do
-			local text = IWBTooltip:GetText("TextLeft"..i);
+			local text = IWBTooltip:GetText("TextLeft"..i)
 			if (not text) then
-				break;
+				break
 			elseif strfind(text, buff) then
-				return true;
+				return true
 			end
 		end
 	end
 	
+	IWBTooltip:SetTrackingSpell()
+	local text = IWBTooltip:GetText("TextLeft1")
+	if text and strfind(text, buff) then
+		return true
+	end
 
     for i=1, 64 do
 		IWBTooltip:SetUnitBuff(unit, i);
 		local text = IWBTooltip:GetText("TextLeft1");
-        
 		if text and strfind(text, buff) then
 			return true;
 		end

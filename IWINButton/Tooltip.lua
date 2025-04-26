@@ -28,6 +28,11 @@ function IWBTooltip:SetUnitDebuff(unit, i)
 	self.frame:SetUnitDebuff(unit, i)
 end
 
+function IWBTooltip:SetTrackingSpell()
+	self.frame:ClearLines()
+	self.frame:SetTrackingSpell()
+end
+
 function IWBTooltip:GetText(rName)
 	return getglobal("IWBTooltipFrame"..rName):GetText()
 end

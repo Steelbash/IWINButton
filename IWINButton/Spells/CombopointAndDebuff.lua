@@ -9,7 +9,7 @@ function IWBCombopointAndDebuff:CreateFrame()
 	buffCond:SetHeight(22)
 
 	local titleTxt = buffCond:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-	titleTxt:SetPoint("TOPLEFT", 0, -10)
+	titleTxt:SetPoint("TOPLEFT", 0, 0)
 	titleTxt:SetText("If no Debuff")
 
 	local checkbox = CreateFrame("CheckButton", nil, self.frame, "UICheckButtonTemplate")

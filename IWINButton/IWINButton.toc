@@ -1,6 +1,6 @@
 ## Interface: 11200
 ## Title: I.W.I.N. Button
-## Version: 1.3.0
+## Version: 1.4.0
 ## Author: Murashko
 ## SavedVariablesPerCharacter: IWB_Data
 
@@ -13,9 +13,11 @@ UITemplates\SpellItemTemplate.lua
 # Spells
 Spells\Base.lua
 Spells\Attack.lua
+Spells\Autoshot.lua
+Spells\SteadyShot.lua
 Spells\Buff.lua
 Spells\Debuff.lua
-Spells\ShieldBuff.lua
+Spells\BuffWithDebuff.lua
 Spells\Combopoint.lua
 Spells\CombopointAndBuff.lua
 Spells\CombopointAndDebuff.lua
@@ -25,6 +27,8 @@ Spells\Rage.lua
 Spells\RageNextMelee.lua
 Spells\Stance.lua
 Spells\Channeled.lua
+Spells\Seal.lua
+Spells\NextMelee.lua
 Spells\Reference.lua
 
 

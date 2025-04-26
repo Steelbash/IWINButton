@@ -9,7 +9,7 @@ function IWBCombopointAndBuff:CreateFrame()
 	buffCond:SetHeight(22)
 
 	local titleTxt = buffCond:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-	titleTxt:SetPoint("TOPLEFT", 0, -10)
+	titleTxt:SetPoint("TOPLEFT", 0, 0)
 	titleTxt:SetText("If no buff")
 
 	local checkbox = CreateFrame("CheckButton", nil, self.frame, "UICheckButtonTemplate")
@@ -34,7 +34,7 @@ end
 function IWBCombopointAndBuff:ShowConfig(spell, onChange)
 	local lastFrame = IWBCombopoint.ShowConfig(self, spell, onChange)
 	
-	self.frame.buffCond:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -10)
+	self.frame.buffCond:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, 0)
 	self.frame.buffCond.checkbox:SetChecked(spell["combopoint_and_buff"])
 end
 
