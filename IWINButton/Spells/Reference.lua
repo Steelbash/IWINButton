@@ -207,6 +207,7 @@ IWB_SPELL_REF  = {
 	["Steady Shot"] = {["handler"] = IWBSteadyShot},
 	["Raptor Strike"] = {["handler"] = IWBNextMelee, ["auto_target"] = true, ["need_range"] = 3},
 	["Mongoose Bite"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+	["Wing Clip"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
 
 	-- Paladin
 	
