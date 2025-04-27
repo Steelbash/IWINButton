@@ -170,6 +170,10 @@ function IWBSpellBase:IsReady(spell)
 		isReady = false
 	end
 	
+	if (IWB_SPELL_REF[spell["name"]] ~= nil) and (IWB_SPELL_REF[spell["name"]]["need_range"] ~= nil) and (UnitCanAttack("player", "target") ~= nil) then
+		isReady = isReady and (CheckInteractDistance("target", IWB_SPELL_REF[spell["name"]]["need_range"]) == 1)
+	end
+	
 	return isReady, slot
 end
 

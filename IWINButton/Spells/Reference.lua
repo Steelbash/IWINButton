@@ -17,7 +17,7 @@ IWB_SPELL_REF  = {
 	["Hamstring"] = {["handler"] = IWBSpellBase, ["no_rank"] = true, ["auto_target"] = true},
 	["Mocking Blow"] = {["handler"] = IWBSpellBase, ["no_rank"] = true, ["auto_target"] = true},
 	["Overpower"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
-	["Thunder Clap"] = {["handler"] = IWBDebuffOrNot, ["no_rank"] = true},
+	["Thunder Clap"] = {["handler"] = IWBDebuffOrSpell, ["no_rank"] = true},
 	["Demoralizing Shout"] = {["handler"] = IWBDebuff, ["no_rank"] = true},
 	["Execute"] = {["handler"] = IWBRage, ["no_rank"] = true, ["auto_target"] = true},
 	["Intercept"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
@@ -123,6 +123,7 @@ IWB_SPELL_REF  = {
     ["Insect Swarm"] = {["handler"] = IWBDebuff},
     ["Demoralizing Roar"] = {["handler"] = IWBDebuff},
     ["Faerie Fire (Feral)"] = {["handler"] = IWBDebuff},
+    ["Moonfire"] = {["handler"] = IWBDebuffOrSpell},
   
     ["Thorns"] = {["handler"] = IWBBuff},
     ["Aquatic Form"] = {["handler"] = IWBBuff},
@@ -204,6 +205,8 @@ IWB_SPELL_REF  = {
 	["Track Humanoids"] = {["handler"] = IWBBuff},
 	["Track Undead"] = {["handler"] = IWBBuff},
 	["Steady Shot"] = {["handler"] = IWBSteadyShot},
+	["Raptor Strike"] = {["handler"] = IWBNextMelee, ["auto_target"] = true, ["need_range"] = 3},
+	["Mongoose Bite"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
 
 	-- Paladin
 	
