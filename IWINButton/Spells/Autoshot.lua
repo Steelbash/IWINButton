@@ -73,7 +73,9 @@ function IWBAutoshot:Cast(spell)
 		slot = IWBUtils:FindSpellOnActionBar("Attack", nil)
 	end 
 	
-	UseAction(slot)
+	if slot then
+		UseAction(slot)
+	end
 
 	return false
 end

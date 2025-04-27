@@ -19,6 +19,9 @@ function IWBAttack:IsReady(spell)
 end
 
 function IWBAttack:Cast(spell)
-	IWBSpellBase.Cast(self, spell)
+	local slot = IWBUtils:FindSpellOnActionBar(spell["name"], spell["rank"])
+	if slot then
+		UseAction(slot)
+	end
 	return false
 end

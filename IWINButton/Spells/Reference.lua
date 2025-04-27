@@ -73,6 +73,7 @@ IWB_SPELL_REF  = {
 	["Shadow Protection"] = {["handler"] = IWBBuff},
 	["Prayer of Shadow Protection"] = {["handler"] = IWBBuff},
 	["Mind Flay"] = {["handler"] = IWBChanneled},
+	["Holy Fire"] = {["handler"] = IWBDebuffOrSpell},
 	
 	-- Warlock
 
