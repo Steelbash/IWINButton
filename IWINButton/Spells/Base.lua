@@ -178,7 +178,10 @@ function IWBSpellBase:IsReady(spell)
 end
 
 function IWBSpellBase:Cast(spell)
-	CastSpell(IWBUtils:GetSpellId(spell["name"], spell["rank"]), "spell")
+	local spell_id = IWBUtils:GetSpellId(spell["name"], spell["rank"])
+	if spell_id then
+		CastSpell(spell_id, "spell")
+	end
 	return true
 end
 

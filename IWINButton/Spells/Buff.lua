@@ -14,5 +14,14 @@ function IWBBuff:IsReady(spell)
 end
 
 
-
+function IWBBuff:Cast(spell)
+	if IWB_SPELL_REF[spell["name"]] ~= nil and IWB_SPELL_REF[spell["name"]]["self_only"] then
+		local target = TargetUnit("player")
+		local res = IWBSpellBase:Cast(spell)
+		TargetLastTarget()
+		return res
+	else
+		return IWBSpellBase:Cast(spell)
+	end
+end
 

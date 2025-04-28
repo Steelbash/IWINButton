@@ -16,7 +16,7 @@ function IWBDebuffOrSpell:CreateFrame()
 	local listEl = DropDownTemplate:new()
 	listEl:CreateFrame("IWBDebuffOrSpell"..self.name, behaviorCond)
 	listEl:SetWidth(80)
-	listEl.frame:SetPoint("LEFT", titleTxt, "LEFT", 70, 0) --SetPoint("TOPLEFT", titleTxt, "TOPRIGHT", 5, 7)
+	listEl.frame:SetPoint("LEFT", titleTxt, "LEFT", 70, 0)
 	listEl:SetOnChange(function() self:SetBehavior(listEl:GetSelected())  end)
 	listEl:SetList({"Spell", "Debuff"}, self.spell["behavior"])
 

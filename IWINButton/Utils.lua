@@ -191,13 +191,14 @@ end
 
 function IWBUtils:GetSpellId(spell_name, spell_rank)
 	local n = 1
-
+	
     while true do
         local name, rank = GetSpellName(n, "spell")
         if not name then
             break
         end
-        if name == spell_name and rank == spell_rank then
+       
+        if name == spell_name and (not spell_rank or rank == spell_rank) then
 			return n
         end
         n = n + 1

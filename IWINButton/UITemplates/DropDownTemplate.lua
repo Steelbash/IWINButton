@@ -27,6 +27,7 @@ function DropDownTemplate:SetSelected(val)
 		self:SetText("")
 	end
 	if cur_val ~= val then
+		self:SetText(val)
 		self.onChange()
 	end
 end
