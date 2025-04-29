@@ -125,6 +125,9 @@ IWB_SPELL_REF  = {
     ["Demoralizing Roar"] = {["handler"] = IWBDebuff},
     ["Faerie Fire (Feral)"] = {["handler"] = IWBDebuff},
     ["Moonfire"] = {["handler"] = IWBDebuffOrSpell},
+    
+    ["Wrath"] = {["handler"] = IWBIfBuff, ["buff_list"] = {"None", "Natural Boon", "Nature Eclipse"}},
+    ["Starfire"] = {["handler"] = IWBIfBuff, ["buff_list"] = {"None", "Astral Boon", "Arcane Eclipse"}},
   
     ["Thorns"] = {["handler"] = IWBBuff},
     ["Aquatic Form"] = {["handler"] = IWBBuff},

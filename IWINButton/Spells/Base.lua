@@ -63,7 +63,6 @@ function IWBSpellBase:CreateFrame()
 	checkbox:SetScript("OnClick", function() self:SetAutoTarget(checkbox:GetChecked()) end)
 	autoCond.checkbox = checkbox
 	
-	
 	frame.autoCond = autoCond
 	frame.rankCond = rankCond
 	

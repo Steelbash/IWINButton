@@ -228,10 +228,10 @@ function IWBUtils:FindBuff(buff, unit)
 	end
 
     for i=1, 64 do
-		IWBTooltip:SetUnitBuff(unit, i);
-		local text = IWBTooltip:GetText("TextLeft1");
+		IWBTooltip:SetUnitBuff(unit, i)
+		local text = IWBTooltip:GetText("TextLeft1")
 		if text and strfind(text, buff) then
-			return true;
+			return true
 		end
 	end
     
