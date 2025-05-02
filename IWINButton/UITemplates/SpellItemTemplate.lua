@@ -88,7 +88,7 @@ function SpellItemTemplate:SetData(data)
 	self.icon:SetTexture(data["texture"])
 	self.nameText:SetText(data["name"])
 	self.rankText:SetText(data["rank"])
-	if data["actionBar"] == true then
+	if data["actionBarSlot"] ~= nil then
 		self.warnFrame:Hide()
 		self.warnIcon:Hide()
 	else

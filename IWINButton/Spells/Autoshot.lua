@@ -42,19 +42,18 @@ function IWBAutoshot:ShowConfig(spell, onChange)
 	self.frame.rangeCond.checkbox:SetChecked(spell["switch_to_melee"])
 end
 
-
 function IWBAutoshot:IsReady(spell)
 	local isReady = true
 
-	local slot = IWBUtils:FindSpellOnActionBar(spell["name"], spell["rank"])
+	local slot = spell["actionBarSlot"]
 	if slot ~= nil then
 		if IsAutoRepeatAction(slot) then
 			isReady = false
 		end
 		
 		if IsActionInRange(slot) == 0 then
-			if spell["switch_to_melee"] then 
-				slot = IWBUtils:FindSpellOnActionBar("Attack", nil)
+			if spell["switch_to_melee"] then
+				slot = IWBUtils:FindAttackOnActionBar()
 				if IsCurrentAction(slot) then
 					isReady = false
 				end
@@ -68,9 +67,9 @@ function IWBAutoshot:IsReady(spell)
 end
 
 function IWBAutoshot:Cast(spell)
-	local slot = IWBUtils:FindSpellOnActionBar(spell["name"], spell["rank"])
-	if IsActionInRange(slot) == 0 and spell["switch_to_melee"] and CheckInteractDistance("target", 3) then
-		slot = IWBUtils:FindSpellOnActionBar("Attack", nil)
+	local slot = spell["actionBarSlot"]
+	if IsActionInRange(slot) == 0 and spell["switch_to_melee"] then
+		slot = IWBUtils:FindAttackOnActionBar()
 	end 
 	
 	if slot then

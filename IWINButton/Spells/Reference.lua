@@ -229,6 +229,7 @@ IWB_SPELL_REF  = {
 	["Blessing of Salvation"] = {["handler"] = IWBBuff},
 	["Concentration Aura"] = {["handler"] = IWBBuff},
 	["Devotion Aura"] = {["handler"] = IWBBuff},
+	["Righteous Fury"] = {["handler"] = IWBBuff},
 										   
 	["Divine Protection"] = {["handler"] = IWBBuffWithDebuff, ["debuff"] = "Forbearance"},
 	["Divine Shield"] = {["handler"] = IWBBuffWithDebuff, ["debuff"] = "Forbearance"},

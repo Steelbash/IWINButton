@@ -4,7 +4,7 @@ IWBAttack = IWBSpellBase:New("Attack")
 function IWBAttack:IsReady(spell)
 	local isReady = true
 
-	local slot = IWBUtils:FindSpellOnActionBar(spell["name"], spell["rank"])
+	local slot = spell["actionBarSlot"]
 	if slot ~= nil then
 		if IsCurrentAction(slot) then
 			isReady = false
@@ -19,7 +19,7 @@ function IWBAttack:IsReady(spell)
 end
 
 function IWBAttack:Cast(spell)
-	local slot = IWBUtils:FindSpellOnActionBar(spell["name"], spell["rank"])
+	local slot = spell["actionBarSlot"]
 	if slot then
 		UseAction(slot)
 	end

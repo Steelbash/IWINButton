@@ -153,14 +153,15 @@ end
 function IWBSpellBase:IsReady(spell)
 	local isReady = true
 
-	local slot = IWBUtils:FindSpellOnActionBar(spell["name"], spell["rank"])
+	local slot = spell["actionBarSlot"]
 	if slot ~= nil then
 		if not IsUsableAction(slot) or IsActionInRange(slot) == 0 then
 			isReady = false
 		end
 	end
 	
-	if isReady and (GetSpellCooldown(spell["id"], "spell") ~= 0) then
+	local spellId = IWBUtils:GetSpellId(spell["name"], spell["rank"])
+	if isReady and (GetSpellCooldown(spellId, "spell") ~= 0) then
 		isReady = false
 	end
 	

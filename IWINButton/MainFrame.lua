@@ -71,6 +71,11 @@ function IWBMainFrame:CreateFrame(parent)
 		IWBMainFrame:FindSpellsOnActionBar()
 	end)
 	
+	frame:SetScript("OnShow", function()
+		self.frame.buttonList:SetList(IWBDb:GetButtonNames())
+		self.firstSlotBindignsUpdated = false
+	end)
+	
 	local bgLayer = frame:CreateTexture(nil, "BACKGROUND")
 	bgLayer:SetTexture("Interface\\MacroFrame\\MacroFrame-Icon")
 	
@@ -232,6 +237,35 @@ function IWBMainFrame:CreateRotation()
 	spellProps:Hide()
 	rotationTab.spellProps = spellProps
 	
+	-- Slot Bindings updated
+	
+	local slotBindUpdFrame = CreateFrame("Frame", "IWBSlotBindingFrame", rotationTab)
+	slotBindUpdFrame:SetWidth(180)
+	slotBindUpdFrame:SetHeight(50)
+	slotBindUpdFrame:SetToplevel(true)
+	slotBindUpdFrame:SetPoint("CENTER", rotationTab, "CENTER", 0, 100)
+	slotBindUpdFrame:Hide()
+	
+	slotBindUpdFrame:SetBackdrop({
+		bgFile = "Interface\\Glues\\Common\\Glue-Tooltip-Background",
+		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+		tile = true,
+		tileSize = 32,
+		edgeSize = 32,
+		insets = {
+			left = 11,
+			right = 12,
+			top = 12,
+			bottom = 11,
+		}
+	})
+	
+	local slotBindUpdText = slotBindUpdFrame:CreateFontString(nil, "ARTWORK", "GameFontGreen")
+	slotBindUpdText:SetPoint("CENTER", 0, 0)
+	slotBindUpdText:SetText("Slot Bindings Updated")
+	rotationTab.slotBindUpdFrame = slotBindUpdFrame
+
+	
 	-- Delete Spell
 	
 	local deleteButton = CreateFrame("Button", nil, spellProps, "UIPanelButtonTemplate")
@@ -283,7 +317,6 @@ function IWBMainFrame:CreateIndication()
 end
 
 function IWBMainFrame:Show()
-	self.frame.buttonList:SetList(IWBDb:GetButtonNames())
 	self.frame:Show()
 end
 
@@ -393,7 +426,7 @@ end
 
 function IWBMainFrame:ButtonListOnChange()
 	local buttonName = IWBMainFrame.frame.buttonList:GetSelected()
-	--print("Button list OnChange: "..(buttonName or "nil"))
+--	print("Button list OnChange: "..(buttonName or "nil"))
 	local button = IWBDb:GetButtonByName(buttonName)
 	if button ~= nil then
 		IWBMainFrame.frame.rotationTab.scrollFrame:SetList(button["spells"], 1)
@@ -408,7 +441,7 @@ function IWBMainFrame:ButtonListOnChange()
 end
 
 function IWBMainFrame:SpellListOnChange()
-	--print("Spell OnChange: " ..IWBMainFrame.frame.rotationTab.scrollFrame:GetSelected())
+--	print("Spell OnChange: " ..IWBMainFrame.frame.rotationTab.scrollFrame:GetSelected())
 	IWBMainFrame.frame.rotationTab.spellProps:Hide()
 	if self.lastSpellHandler ~= nil then
 		self.lastSpellHandler:Hide()
@@ -488,15 +521,22 @@ function IWBMainFrame:FindSpellsOnActionBar()
 	local button = IWBMainFrame.frame.buttonList:GetSelected()
 	if button ~= nil then
 		local spells = {}
-		for i = 1, IWBDb:GetSpellCount(button) do
+		local spellCount = IWBDb:GetSpellCount(button)
+		for i = 1,spellCount  do
 			local spell = IWBDb:GetSpellByIndex(button, i)
 			local slot = IWBUtils:FindSpellOnActionBar(spell["name"], spell["rank"])
-			spell["actionBar"] = (slot ~= nil)
-			
+			spell["actionBarSlot"] = slot
+		end
+		
+		if (spellCount > 0) and (not self.firstSlotBindignsUpdated) then
+			self.firstSlotBindignsUpdated = true
+			UIFrameFlash(self.frame.rotationTab.slotBindUpdFrame, 0.3, 0.3, 1, false, 0, 1)
+		elseif spellCount == 0 then
+			self.firstSlotBindignsUpdated = true
 		end
 	end
-	IWBMainFrame.frame.rotationTab.scrollFrame:UpdateFrame()
 	
+	IWBMainFrame.frame.rotationTab.scrollFrame:UpdateFrame()
 	self.updateSpellsLast = GetTime()
 end
 
