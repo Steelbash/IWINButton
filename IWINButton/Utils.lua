@@ -1,6 +1,8 @@
 
 IWBUtils = {}
 
+IWBUtils.isSuperWoW = (GetPlayerBuffID ~= nil)
+
 function IWBUtils:ModalDialogQuestion(question, onAcceptFunc, onCancelFunc, offsetX, offsetY)
 	StaticPopupDialogs["IWB_DIALOG_QUESTION"] = {
 		text = question,
@@ -236,11 +238,21 @@ function IWBUtils:FindBuff(buff, unit)
 		return true
 	end
 
-    for i=1, 64 do
-		local auraId = GetPlayerBuff(i)
-		if auraId ~= -1 then
-			local buffId = GetPlayerBuffID(auraId)
-			local text = SpellInfo(buffId)
+	if self.isSuperWoW then
+		for i=1, 64 do
+			local auraId = GetPlayerBuff(i)
+			if auraId ~= -1 then
+				local buffId = GetPlayerBuffID(auraId)
+				local text = SpellInfo(buffId)
+				if text and strfind(text, buff) then
+					return true
+				end
+			end
+		end
+	else
+		for i=1, 64 do
+			IWBTooltip:SetUnitBuff(unit, i)
+			local text = IWBTooltip:GetText("TextLeft1")
 			if text and strfind(text, buff) then
 				return true
 			end
