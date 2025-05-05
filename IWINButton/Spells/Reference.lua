@@ -14,7 +14,7 @@ IWB_SPELL_REF  = {
 	["Defensive Stance"] = {["handler"] = IWBStance},
 	["Berseker Stance"] = {["handler"] = IWBStance},
 	["Charge"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
-	["Hamstring"] = {["handler"] = IWBSpellBase, ["no_rank"] = true, ["auto_target"] = true},
+	["Hamstring"] = {["handler"] = IWBDebuff, ["no_rank"] = true, ["auto_target"] = true},
 	["Mocking Blow"] = {["handler"] = IWBSpellBase, ["no_rank"] = true, ["auto_target"] = true},
 	["Overpower"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
 	["Thunder Clap"] = {["handler"] = IWBDebuffOrSpell, ["no_rank"] = true},
@@ -78,14 +78,14 @@ IWB_SPELL_REF  = {
 	-- Warlock
 
 	
-	["Corruption"] = {["handler"] = IWBDebuff},
-	["Curse of Agony"] = {["handler"] = IWBDebuff},
+	["Corruption"] = {["handler"] = IWBDebuffDot, ["duration"] = 15},
+	["Curse of Agony"] = {["handler"] = IWBDebuffDot, ["duration"] = 24},
 	["Curse of Recklessness"] = {["handler"] = IWBDebuff},
 	["Curse of Shadow"] = {["handler"] = IWBDebuff},
 	["Curse of Tongues"] = {["handler"] = IWBDebuff},
 	["Curse of the Elements"] = {["handler"] = IWBDebuff},
 	["Curse of the Elements"] = {["handler"] = IWBDebuff},
-	["Immolate"] = {["handler"] = IWBDebuff},
+	["Immolate"] = {["handler"] = IWBDebuffDot, ["duration"] = 15},
 	["Siphon Life"] = {["handler"] = IWBDebuff},
 	["Curse of Exhaustion"] = {["handler"] = IWBDebuff},
 	
@@ -176,6 +176,7 @@ IWB_SPELL_REF  = {
 	["Tranquil Air Totem"] = {["handler"] = IWBBuff, ["alias"] = "Tranquil Air"},
 	["Water Breathing"] = {["handler"] = IWBBuff},
 	["Water Shield"] = {["handler"] = IWBBuff},
+	["Lightning Shield"] = {["handler"] = IWBBuff},
 	["Water Walking"] = {["handler"] = IWBBuff},
 	["Windfury Totem"] = {["handler"] = IWBBuff, ["alias"] = "Windfury Totem Effect"},
 	
