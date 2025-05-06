@@ -1,6 +1,6 @@
 ## Interface: 11200
 ## Title: I.W.I.N. Button
-## Version: 1.8.1
+## Version: 1.8.2
 ## Author: Murashko
 ## SavedVariablesPerCharacter: IWB_Data
 

@@ -240,10 +240,9 @@ function IWBUtils:FindBuff(buff, unit)
 
 	if self.isSuperWoW then
 		for i=1, 64 do
-			local auraId = GetPlayerBuff(i)
-			if auraId ~= -1 then
-				local buffId = GetPlayerBuffID(auraId)
-				local text = SpellInfo(buffId)
+			local bIcon, bCount, auraId = UnitBuff("player", i)
+			if auraId then
+				local text = SpellInfo(auraId)
 				if text and strfind(text, buff) then
 					return true
 				end
