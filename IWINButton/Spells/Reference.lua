@@ -8,7 +8,7 @@ IWB_SPELL_REF  = {
 	["Heroic Strike"] = {["handler"] = IWBRageNextMelee, ["no_rank"] = true, ["auto_target"] = true},
 	["Battle Shout"] = {["handler"] = IWBBuff, ["no_rank"] = true},
 	["Cleave"] = {["handler"] = IWBRageNextMelee, ["no_rank"] = true, ["auto_target"] = true},
-	["Rend"] = {["handler"] = IWBDebuff, ["no_rank"] = true, ["auto_target"] = true},
+	["Rend"] = {["handler"] = IWBDebuff, ["no_rank"] = true, ["auto_target"] = true, ["target_hp"] = true},
 	["Sunder Armor"] = {["handler"] = IWBSpellBase, ["no_rank"] = true, ["auto_target"] = true},
 	["Battle Stance"] = {["handler"] = IWBStance},
 	["Defensive Stance"] = {["handler"] = IWBStance},
@@ -34,6 +34,7 @@ IWB_SPELL_REF  = {
 	["Whirlwind"] = {["handler"] = IWBRage},
 	["Pummel"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
 	["Disarm"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+	["Bloodrage"] = {["handler"] = IWBBloodrage, ["no_rank"] = true},
 	
 	-- Rogue
 	
@@ -74,18 +75,19 @@ IWB_SPELL_REF  = {
 	["Prayer of Shadow Protection"] = {["handler"] = IWBBuff, ["self_only"] = true},
 	["Mind Flay"] = {["handler"] = IWBChanneled},
 	["Holy Fire"] = {["handler"] = IWBDebuffOrSpell},
+	["Shadow Word: Pain"] = {["handler"] = IWBDebuffDot, ["duration"] = 18, ["target_hp"] = true},
 	
 	-- Warlock
 
 	
-	["Corruption"] = {["handler"] = IWBDebuffDot, ["duration"] = 15},
-	["Curse of Agony"] = {["handler"] = IWBDebuffDot, ["duration"] = 24},
+	["Corruption"] = {["handler"] = IWBDebuffDot, ["duration"] = 15, ["target_hp"] = true},
+	["Curse of Agony"] = {["handler"] = IWBDebuffDot, ["duration"] = 24, ["target_hp"] = true},
 	["Curse of Recklessness"] = {["handler"] = IWBDebuff},
 	["Curse of Shadow"] = {["handler"] = IWBDebuff},
 	["Curse of Tongues"] = {["handler"] = IWBDebuff},
 	["Curse of the Elements"] = {["handler"] = IWBDebuff},
 	["Curse of the Elements"] = {["handler"] = IWBDebuff},
-	["Immolate"] = {["handler"] = IWBDebuffDot, ["duration"] = 15},
+	["Immolate"] = {["handler"] = IWBDebuffDot, ["duration"] = 15, ["target_hp"] = true},
 	["Siphon Life"] = {["handler"] = IWBDebuff},
 	["Curse of Exhaustion"] = {["handler"] = IWBDebuff},
 	
@@ -121,10 +123,10 @@ IWB_SPELL_REF  = {
 
     ["Entangling Roots"] = {["handler"] = IWBDebuff},
     ["Faerie Fire"] = {["handler"] = IWBDebuff},
-    ["Insect Swarm"] = {["handler"] = IWBDebuff},
+    ["Insect Swarm"] = {["handler"] = IWBDebuff, ["target_hp"] = true},
     ["Demoralizing Roar"] = {["handler"] = IWBDebuff},
     ["Faerie Fire (Feral)"] = {["handler"] = IWBDebuff},
-    ["Moonfire"] = {["handler"] = IWBDebuffOrSpell},
+    ["Moonfire"] = {["handler"] = IWBDebuffOrSpell, ["target_hp"] = true},
     
     ["Wrath"] = {["handler"] = IWBIfBuff, ["buff_list"] = {"None", "Natural Boon", "Nature Eclipse"}},
     ["Starfire"] = {["handler"] = IWBIfBuff, ["buff_list"] = {"None", "Astral Boon", "Arcane Eclipse"}},
@@ -159,7 +161,7 @@ IWB_SPELL_REF  = {
 	
 	-- Shaman
 
-	["Flame Shock"] = {["handler"] = IWBDebuff, ["auto_target"] = true},
+	["Flame Shock"] = {["handler"] = IWBDebuff, ["auto_target"] = true, ["target_hp"] = true},
 	["Earth Shield"] = {["handler"] = IWBBuff},
 	["Fire Resistance Totem"] = {["handler"] = IWBBuff, ["alias"] = "Fire Resistance"},
 	["Flametongue Totem"] = {["handler"] = IWBBuff, ["alias"] = "Flametongue Totem Passive"},
@@ -200,7 +202,7 @@ IWB_SPELL_REF  = {
 	["Aspect of the Pack"] = {["handler"] = IWBBuff},
 	["Hunter's Mark"] = {["handler"] = IWBDebuff},
 	["Scorpid Sting"] = {["handler"] = IWBDebuff},
-	["Serpent Sting"] = {["handler"] = IWBDebuff},
+	["Serpent Sting"] = {["handler"] = IWBDebuff, ["target_hp"] = true},
 	["Viper Sting"] = {["handler"] = IWBDebuff},
 	["Track Beasts"] = {["handler"] = IWBBuff},
 	["Track Demons"] = {["handler"] = IWBBuff},

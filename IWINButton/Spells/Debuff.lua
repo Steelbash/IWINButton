@@ -55,16 +55,28 @@ end
 function IWBDebuff:ShowConfig(spell, onChange)
 	local lastFrame = IWBSpellBase.ShowConfig(self, spell, onChange)
 	
-	self.frame.hpCond:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, 0)
-	if spell["target_hp"] == nil or spell["target_hp"] == "" then
-		spell["target_hp"] = 0
+	if IWB_SPELL_REF[spell["name"]] and IWB_SPELL_REF[spell["name"]]["target_hp"] then
+		self.frame.hpCond:Show()
+		self.frame.hpCond:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, 0)
+		if spell["target_hp"] == nil or spell["target_hp"] == "" then
+			spell["target_hp"] = 0
+		end
+		self.frame.hpCond.editBox:SetText(spell["target_hp"])
+		lastFrame = self.frame.hpCond
+	else
+		self.frame.hpCond:Hide()
 	end
-	self.frame.hpCond.editBox:SetText(spell["target_hp"])
+	
+	return lastFrame
 end
 
 function IWBDebuff:IsReady(spell)
 	local isReady, slot = IWBSpellBase.IsReady(self, spell)
 	if isReady then
+		if spell["target_hp"] == nil or spell["target_hp"] == "" then
+			spell["target_hp"] = 0
+		end
+	
 		isReady = (not IWBUtils:FindDebuff(spell["name"], "target")) and 
 					(UnitHealth("target") >= tonumber(spell["target_hp"]))
 	end

@@ -1,5 +1,5 @@
 
-IWBDebuffDot = IWBSpellBase:New("DebuffDot")
+IWBDebuffDot = IWBDebuff:New("DebuffDot")
 
 IWBDebuffDot.dotStart = {}
 
@@ -59,6 +59,9 @@ function IWBDebuffDot:IsReady(spell)
 		isReady = (not IWBUtils:FindDebuff(spell["name"], "target")) or 
 				  IWBDebuffDot:IsUnitDotTimeOut(spell["name"], uuid)
 		
+		if spell["target_hp"] == nil or spell["target_hp"] == "" then
+			spell["target_hp"] = 0
+		end
 		isReady = isReady and (UnitHealth("target") >= tonumber(spell["target_hp"]))
 	end
 	return isReady, slot
