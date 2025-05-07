@@ -123,10 +123,10 @@ IWB_SPELL_REF  = {
 
     ["Entangling Roots"] = {["handler"] = IWBDebuff},
     ["Faerie Fire"] = {["handler"] = IWBDebuff},
-    ["Insect Swarm"] = {["handler"] = IWBDebuff, ["target_hp"] = true},
     ["Demoralizing Roar"] = {["handler"] = IWBDebuff},
     ["Faerie Fire (Feral)"] = {["handler"] = IWBDebuff},
-    ["Moonfire"] = {["handler"] = IWBDebuffOrSpell, ["target_hp"] = true},
+	["Insect Swarm"] = {["handler"] = IWBDebuffDot, ["duration"] = 18, ["target_hp"] = true},
+    ["Moonfire"] = {["handler"] = IWBDebuffDot, ["duration"] = 18, ["target_hp"] = true},
     
     ["Wrath"] = {["handler"] = IWBIfBuff, ["buff_list"] = {"None", "Natural Boon", "Nature Eclipse"}},
     ["Starfire"] = {["handler"] = IWBIfBuff, ["buff_list"] = {"None", "Astral Boon", "Arcane Eclipse"}},
@@ -154,7 +154,6 @@ IWB_SPELL_REF  = {
     ["Claw"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
     ["Rake"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
     ["Ravage"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
-    ["Shred"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
     ["Shred"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
 	
 	
