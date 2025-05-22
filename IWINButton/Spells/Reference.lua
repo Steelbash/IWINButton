@@ -2,6 +2,8 @@
 IWB_SPELL_REF  = {
 	["Attack"] = {["handler"] = IWBAttack, ["auto_target"] = true},
 	["Auto Shot"] = {["handler"] = IWBAutoshot},
+	["Find Herbs"] = {["handler"] = IWBBuff},
+	["Find Minerals"] = {["handler"] = IWBBuff},
 	
 	-- Warrior
 	
@@ -24,7 +26,7 @@ IWB_SPELL_REF  = {
 	["Intervene"] = {["handler"] = IWBSpellBase, ["no_rank"] = true},
 	["Revenge"] = {["handler"] = IWBSpellBase, ["no_rank"] = true, ["auto_target"] = true},
 	["Shield Bash"] = {["handler"] = IWBSpellBase, ["no_rank"] = true, ["auto_target"] = true},
-	["Shield Block"] = {["handler"] = IWBBuff, ["no_rank"] = true},
+	["Shield Block"] = {["handler"] = IWBShieldBlock, ["no_rank"] = true},
 	["Mortal Strike"] = {["handler"] = IWBRage, ["no_rank"] = true, ["auto_target"] = true},
 	["Bloodthirst"] = {["handler"] = IWBRage, ["no_rank"] = true, ["auto_target"] = true},
 	["Shield Slam"] = {["handler"] = IWBSpellBase, ["no_rank"] = true, ["auto_target"] = true},
@@ -172,7 +174,7 @@ IWB_SPELL_REF  = {
 	["Stoneskin Totem"] = {["handler"] = IWBBuff, ["alias"] = "Stoneskin"},
 	["Strength of Earth Totem"] = {["handler"] = IWBBuff, ["alias"] = "Strength of Earth"},
 	["Healing Stream Totem"] = {["handler"] = IWBBuff, ["alias"] = "Healing Stream"},
-	["Mana Spring Totem"] = {["handler"] = IWBBuff, ["alias"] = "Mana Spring Totem"},
+	["Mana Spring Totem"] = {["handler"] = IWBBuff, ["alias"] = "Mana Spring"},
 	["Windwall Totem"] = {["handler"] = IWBBuff, ["alias"] = "Windwall"},
 	["Tranquil Air Totem"] = {["handler"] = IWBBuff, ["alias"] = "Tranquil Air"},
 	["Water Breathing"] = {["handler"] = IWBBuff},
@@ -214,6 +216,7 @@ IWB_SPELL_REF  = {
 	["Raptor Strike"] = {["handler"] = IWBNextMelee, ["auto_target"] = true, ["need_range"] = 3},
 	["Mongoose Bite"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
 	["Wing Clip"] = {["handler"] = IWBSpellBase, ["auto_target"] = true},
+	["Carve"] = {["handler"] = IWBSpellBase,  ["need_range"] = 3},
 
 	-- Paladin
 	

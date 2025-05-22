@@ -89,7 +89,7 @@ end
 
 function IWBSpellBase:SetRank(v)
 	local maxRank = IWBUtils:GetSpellMaxRank(self.spell["name"])
-	if tonumber(v) < maxRank then
+	if maxRank and tonumber(v) < maxRank then
 		self.frame.rankCond.maxButton:Enable()
 	else
 		self.frame.rankCond.maxButton:Disable()
@@ -130,8 +130,10 @@ function IWBSpellBase:ShowConfig(spell, onChange)
 		local list = {}
 		local rankNum = IWBUtils:GetRankNum(spell["rank"])
 		local maxRank = IWBUtils:GetSpellMaxRank(spell["name"])
-		for i = 1,maxRank do
-			table.insert(list, tostring(i))
+		if maxRank then
+			for i = 1,maxRank do
+				table.insert(list, tostring(i))
+			end
 		end
 		self.frame.rankCond.rankList:SetList(list, rankNum)
 	else
