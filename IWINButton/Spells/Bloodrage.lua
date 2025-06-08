@@ -48,6 +48,9 @@ function IWBBloodrage:CreateFrame()
 
 	editBox:SetScript("OnTextChanged", function()
 		self.spell["rage"] = this:GetText()
+		if self.spell["rage"] == nil or self.spell["rage"] == "" then
+			self.spell["rage"] = 0
+		end
 	end)
 	
 	self.frame.rageCond = rageCond
