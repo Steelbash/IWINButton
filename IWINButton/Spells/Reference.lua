@@ -201,6 +201,7 @@ IWB_SPELL_REF  = {
 	["Aspect of the Hawk"] = {["handler"] = IWBBuff},
 	["Aspect of the Monkey"] = {["handler"] = IWBBuff},
 	["Aspect of the Pack"] = {["handler"] = IWBBuff},
+	["Aspect of the Wolf"] = {["handler"] = IWBBuff},
 	["Hunter's Mark"] = {["handler"] = IWBDebuff},
 	["Scorpid Sting"] = {["handler"] = IWBDebuff},
 	["Serpent Sting"] = {["handler"] = IWBDebuff, ["target_hp"] = true},
